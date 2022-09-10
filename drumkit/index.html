@@ -1,4 +1,4 @@
-https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3
+<!-- https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3
 https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
 https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
 https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
@@ -15,4 +15,86 @@ https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3'
 https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3
 https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3'
 https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3'
-https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
+https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3' -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+
+    <title>Kickin' Drum Kit</title>
+  </head>
+  <body>
+    <h1>Press your favorite button</h1>
+    <h2>(Or two...or three)</h2>
+    <div id="drum-machine">
+      <div id="soundsLike">Sounds like:</div>
+      <div id="display"></div>
+      <div class="drum-kit">
+        <div id="Heater-1" class="drum-pad">Q<audio src="https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3" class="clip" id="Q"></audio>
+        </div>
+        <div id="Heater-2" class="drum-pad">
+          W<audio
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3"
+            class="clip"
+            id="W"
+          ></audio>
+        </div>
+        <div id="Heater-3" class="drum-pad">
+          E<audio
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3"
+            class="clip"
+            id="E"
+          ></audio>
+        </div>
+        <div id="Heater-4" class="drum-pad">
+          A<audio
+            src="https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3"
+            class="clip"
+            id="A"
+          ></audio>
+        </div>
+        <div id="Kick" class="drum-pad">
+          S<audio
+            src="https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3"
+            class="clip"
+            id="S"
+          ></audio>
+        </div>
+        <div id="Stick Clap" class="drum-pad">
+          D<audio
+            src="https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3"
+            class="clip"
+            id="D"
+          ></audio>
+        </div>
+        <div id="Chord 1" class="drum-pad">
+          Z<audio
+            src="
+            https://s3.amazonaws.com/freecodecamp/drums/Chord_1.mp3"
+            class="clip"
+            id="Z"
+          ></audio>
+        </div>
+        <div id="Chord 2" class="drum-pad">
+          X<audio
+            src="https://s3.amazonaws.com/freecodecamp/drums/Chord_2.mp3"
+            class="clip"
+            id="X"
+          ></audio>
+        </div>
+        <div id="Chord 3" class="drum-pad">
+          C<audio
+            src="https://s3.amazonaws.com/freecodecamp/drums/Chord_3.mp3"
+            class="clip"
+            id="C"
+          ></audio>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
