@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Markdown Previewer</title>
+  </head>
+  <body>
+    <div id="instructions">
+      <h2>How to use</h2>
+      <h3>Headings</h3>
+      <ul>
+        <li>Use # in front of your text, with a space after</li>
+        <li>1-6 # for the heading type (h1-h6)</li>
+        <li>
+          <b>Example:</b><br />
+          # your text
+        </li>
+      </ul>
+      <h3>Paragraphs</h3>
+      <ul>
+        <li>
+          type text normally, leave a line of space between different paragraphs
+        </li>
+        <li>
+          <b>Example:</b> <br />Here's paragraph one <br /><br />Here's
+          paragraph two
+        </li>
+      </ul>
+
+      <h3>Bold</h3>
+      <ul>
+        <li>add two asterisks (**) before and after the word or phrase</li>
+        <li><b>Example:</b> <br />I just love **bold text**</li>
+      </ul>
+      <h3>Italic</h3>
+      <ul>
+        <li>
+          add one asterisk (*) or underscore(_) before and after the word or
+          phrase
+        </li>
+        <li>
+          <b>Example:</b> <br />I just love *italicized text*<br />
+          OR<br />
+          I just love _italicized text_
+        </li>
+      </ul>
+
+      <h3>Blockquote</h3>
+      <ul>
+        <li>add a > in front of a paragraph</li>
+        <li>
+          if your quote is multiple lines, use a > at the beginning of every
+          line
+        </li>
+
+        <li>
+          <b>Example:</b> <br />
+          > I have a dream. -MLK
+        </li>
+      </ul>
+      <h3>Lists</h3>
+      <ul>
+        <h4>Unordered Lists</h4>
+        <li>
+          add dashes (-), asterisks (*), or plus signs (+) in front of line
+          items
+        </li>
+        <li>indent one or more items to create a nested list</li>
+
+        <li>
+          <b>Example:</b> <br />
+          - First Item<br />
+          OR<br />
+          * First Item<br />
+          OR<br />
+          + First Item
+        </li>
+
+        <h4>Ordered Lists</h4>
+        <li>
+          add line items with numbers followed by periods (1.) The numbers don’t
+          have to be in numerical order, but the list should start with the
+          number one.
+        </li>
+        <li>indent one or more items to create a nested list</li>
+
+        <li>
+          <b>Example:</b> <br />
+          1. First Item
+        </li>
+      </ul>
+
+      <h3>Links</h3>
+      <ul>
+        <li>
+          enclose the link text in brackets and then follow it immediately with
+          the URL in parentheses
+        </li>
+
+        <li>
+          <b>Example:</b> <br />
+          [Go to Twitter](https://www.twitter.com)
+        </li>
+      </ul>
+
+      <h3>Images</h3>
+      <ul>
+        <li>
+          add an exclamation mark (!), followed by alt text in brackets, and the
+          path or URL to the image asset in parentheses
+        </li>
+        <li>
+          You can optionally add a title in quotation marks after the path or
+          URL.
+        </li>
+        <li>
+          <b>Example:</b> <br />
+          ![My dog is the cutest](/assets/images/cutestdogever.jpg "German
+          Shepherd")
+        </li>
+      </ul>
+    </div>
+
+    <h1>Markdown Previewer</h1>
+    <div class="container">
+      <textarea id="editor">
+  # Welcome
+  ## to the easiest markdown previewer you'll ever use!
+  [Have a look at the CDN used](https://marked.js.org/)
+  <br>
+  Instead of `<li>list item here</li>`,<br>
+  just number your list items, like so!
+  ### Things I love
+  1. Dogs
+  2. Cold Weather
+  3. Coffee
+  4. Disc Golf
+
+  > I didn't know about markdown until today, but I love it! -Kaleigh
+
+  **Have a picture of my puppy**<br>
+  ![Freya, the best pup](./freya.jpg)
+
+    </textarea
+      >
+
+      <div id="preview"></div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.1.0/marked.min.js"
+      integrity="sha512-DZIC9m2IbFlio5GE2oKD6/veW6NXML5Cbo9FHnba7Q9R4OCPelWw9R5QpupcPPLSv0euhuRr+5JV5pWl3X3nSg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
