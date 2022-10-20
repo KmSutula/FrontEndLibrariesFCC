@@ -1,25 +1,49 @@
 const App = () => {
-  const [expression, setExpression] = React.useState("");
+  const [userInput, setUserInput] = React.useState("");
+  const [display, setDisplay] = React.useState("");
   const [answer, setAnswer] = React.useState(0);
-  const display = (symbol) => {
-    setExpression((prev) => prev + symbol);
-    if (expression[expression.length - 1] == "=") {
-      if (/[1-9.]/.test(symbol)) {
-        setExpression(symbol);
-      } else {
-        setExpression(answer + symbol);
-      }
+
+  const addUserInput = (entry) => {
+    if (answer) {
+      let prevAnswer = answer;
+      allClear();
+      entry = prevAnswer + entry;
     }
+
+    setUserInput((prevUserInput) => prevUserInput + entry);
+    setDisplay((prevUserInput) => prevUserInput + entry);
   };
 
   const calculate = () => {
-    setAnswer(eval(expression));
-    setExpression((prev) => prev + "=");
+    setDisplay((prevDisplay) => prevDisplay + "=");
+    setAnswer(eval(userInput));
+    setUserInput();
   };
+
   const allClear = () => {
-    setExpression("");
+    setUserInput("");
+    setDisplay("");
     setAnswer(0);
   };
+
+  const handleKeyPress = (event) => {
+    if (event.key.match(/\d|[\+\-\/\*]/)) {
+      addUserInput(event.key);
+    } else if (event.keyCode === 8) {
+      // allClear();
+      setDisplay((prevDisplay) => prevDisplay.slice(0, -1));
+      setUserInput((prevUserInput) => prevUserInput.slice(0, -1));
+    } else if (event.keyCode === 13) {
+      calculate();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [handleKeyPress]);
 
   return (
     <div className="container-xl primary">
@@ -39,14 +63,14 @@ const App = () => {
 
       <div className="row">
         <button
-          onClick={() => display("0")}
+          onClick={() => addUserInput("0")}
           className="btn btn-primary col-6"
           id="zero"
         >
           0
         </button>
         <button
-          onClick={() => display(".")}
+          onClick={() => addUserInput(".")}
           className="btn btn-dark col-3"
           id="decimal"
         >
@@ -54,7 +78,7 @@ const App = () => {
         </button>
 
         <button
-          onClick={() => display("*")}
+          onClick={() => addUserInput("*")}
           className="btn btn-dark col-3"
           id="multiply"
         >
@@ -63,28 +87,28 @@ const App = () => {
       </div>
       <div className="row">
         <button
-          onClick={() => display("1")}
+          onClick={() => addUserInput("1")}
           className="btn btn-primary col"
           id="one"
         >
           1
         </button>
         <button
-          onClick={() => display("2")}
+          onClick={() => addUserInput("2")}
           className="btn btn-primary col"
           id="two"
         >
           2
         </button>
         <button
-          onClick={() => display("3")}
+          onClick={() => addUserInput("3")}
           className="btn btn-primary col"
           id="three"
         >
           3
         </button>
         <button
-          onClick={() => display("/")}
+          onClick={() => addUserInput("/")}
           className="btn btn-dark col"
           id="divide"
         >
@@ -93,28 +117,28 @@ const App = () => {
       </div>
       <div className="row">
         <button
-          onClick={() => display("4")}
+          onClick={() => addUserInput("4")}
           className="btn btn-primary col"
           id="four"
         >
           4
         </button>
         <button
-          onClick={() => display("5")}
+          onClick={() => addUserInput("5")}
           className="btn btn-primary col"
           id="five"
         >
           5
         </button>
         <button
-          onClick={() => display("6")}
+          onClick={() => addUserInput("6")}
           className="btn btn-primary col"
           id="six"
         >
           6
         </button>
         <button
-          onClick={() => display("-")}
+          onClick={() => addUserInput("-")}
           className="btn btn-dark col"
           id="subtract"
         >
@@ -123,28 +147,28 @@ const App = () => {
       </div>
       <div className="row">
         <button
-          onClick={() => display("7")}
+          onClick={() => addUserInput("7")}
           className="btn btn-primary col"
           id="seven"
         >
           7
         </button>
         <button
-          onClick={() => display("8")}
+          onClick={() => addUserInput("8")}
           className="btn btn-primary col"
           id="eight"
         >
           8
         </button>
         <button
-          onClick={() => display("9")}
+          onClick={() => addUserInput("9")}
           className="btn btn-primary col"
           id="nine"
         >
           9
         </button>
         <button
-          onClick={() => display("+")}
+          onClick={() => addUserInput("+")}
           className="btn btn-dark col"
           id="add"
         >
@@ -152,7 +176,7 @@ const App = () => {
         </button>
       </div>
       <div id="display">
-        <input type="text" value={expression} disabled></input>
+        <input type="text" value={display} disabled></input>
       </div>
       <div id="answer">{answer}</div>
     </div>
