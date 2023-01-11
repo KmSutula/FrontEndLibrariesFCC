@@ -172,3 +172,5 @@ export default class Timer {
 `;
   }
 }
+
+new Timer(document.querySelector(".timer-container"));
